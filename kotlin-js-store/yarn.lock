@@ -9,11 +9,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@cashapp/sqldelight-sqljs-worker@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@cashapp/sqldelight-sqljs-worker/-/sqldelight-sqljs-worker-2.0.0.tgz#16c0138a9611905272019481b2c6abfcb55f9ba8"
-  integrity sha512-mdavcZ0KnY9LvUfs6Z3o9bDXumpVxICvgBSSo570anDhOGwak3ttU0YbkAtDsyqLIhBLGwGEUqyyDLJ1LqPndg==
-
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
@@ -119,6 +114,11 @@
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
+
+"@sqlite.org/sqlite-wasm@3.43.2-build1":
+  version "3.43.2-build1"
+  resolved "https://registry.yarnpkg.com/@sqlite.org/sqlite-wasm/-/sqlite-wasm-3.43.2-build1.tgz#5f1768e2df7328bdd9a5b9ec7c94eaa0bd36705a"
+  integrity sha512-f0qln3z0RFWV5WTwsidFRJ0e8dCeilGB4kKVUTA0IHVPIIAW75AWZKfPcI5kHiC+VIYhlT8lM3k+9MNeAcv9uA==
 
 "@types/body-parser@*":
   version "1.19.4"
@@ -2534,11 +2534,6 @@ spdy@^4.0.2:
     http-deceiver "^1.2.7"
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
-
-sql.js@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/sql.js/-/sql.js-1.8.0.tgz#cb45d957e17a2239662fe2f614c9b678990867a6"
-  integrity sha512-3HD8pSkZL+5YvYUI8nlvNILs61ALqq34xgmF+BHpqxe68yZIJ1H+sIVIODvni25+CcxHUxDyrTJUL0lE/m7afw==
 
 statuses@2.0.1:
   version "2.0.1"

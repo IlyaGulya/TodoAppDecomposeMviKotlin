@@ -26,8 +26,7 @@ kotlin {
                 implementation(libs.arkivanov.mvikotlin.main)
                 implementation(libs.badoo.reaktive)
                 implementation(libs.squareup.sqldelight.webworker.driver)
-                implementation(npm("@cashapp/sqldelight-sqljs-worker", "2.0.0"))
-                implementation(npm("sql.js", "1.8.0"))
+                implementation(npm("@sqlite.org/sqlite-wasm", "3.43.2-build1"))
                 implementation(npm("copy-webpack-plugin", "11.0.0"))
                 implementation(npm("@material-ui/icons", "4.11.2"))
             }

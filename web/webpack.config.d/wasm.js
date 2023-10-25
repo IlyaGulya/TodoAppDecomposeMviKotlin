@@ -5,7 +5,9 @@ config.plugins.push(
     new CopyWebpackPlugin(
         {
             patterns: [
-                "../../node_modules/sql.js/dist/sql-wasm.wasm",
+                  "../../node_modules/@sqlite.org/sqlite-wasm/sqlite-wasm/jswasm/sqlite3.js",
+                  "../../node_modules/@sqlite.org/sqlite-wasm/sqlite-wasm/jswasm/sqlite3.wasm",
+                  "../../node_modules/@sqlite.org/sqlite-wasm/sqlite-wasm/jswasm/sqlite3-opfs-async-proxy.js",
             ]
         }
     )

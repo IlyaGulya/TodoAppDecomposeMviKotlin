@@ -10,11 +10,14 @@ import org.w3c.dom.Worker
 
 fun todoDatabaseDriver(): Single<SqlDriver> =
     singleFromCoroutine {
-        val driver = WebWorkerDriver(
-            Worker(
-                js("""new URL("@cashapp/sqldelight-sqljs-worker/sqljs.worker.js", import.meta.url)""")
-            )
-        )
+        val worker = Worker(js("""new URL("sqlite.worker.js", import.meta.url)""").unsafeCast<String>())
+        val driver: SqlDriver = WebWorkerDriver(worker)
+
+//        val driver = WebWorkerDriver(
+//            Worker(
+//                js("""new URL("@cashapp/sqldelight-sqljs-worker/sqljs.worker.js", import.meta.url)""")
+//            )
+//        )
         TodoDatabase.Schema.awaitCreate(driver)
         driver
     }
