@@ -7,6 +7,8 @@ plugins {
     id("kotlin-parcelize")
 }
 
+android.namespace = "example.todo.common.root"
+
 kotlin {
     targets
         .filterIsInstance<KotlinNativeTarget>()
@@ -19,36 +21,39 @@ kotlin {
                     export(project(":common:database"))
                     export(project(":common:main"))
                     export(project(":common:edit"))
-                    export(Deps.ArkIvanov.Decompose.decompose)
-                    export(Deps.ArkIvanov.MVIKotlin.mvikotlinMain)
-                    export(Deps.ArkIvanov.Essenty.lifecycle)
+                    export(libs.arkivanov.mvikotlin)
+                    export(libs.arkivanov.mvikotlin.main)
+                    export(libs.arkivanov.decompose)
+                    export(libs.arkivanov.essenty.lifecycle)
                 }
             }
         }
 
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(project(":common:utils"))
                 implementation(project(":common:database"))
                 implementation(project(":common:main"))
                 implementation(project(":common:edit"))
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
-                implementation(Deps.ArkIvanov.Decompose.decompose)
-                implementation(Deps.Badoo.Reaktive.reaktive)
+                api(libs.arkivanov.mvikotlin)
+                api(libs.arkivanov.mvikotlin.main)
+                api(libs.arkivanov.decompose)
+                api(libs.arkivanov.essenty.lifecycle)
+                implementation(libs.badoo.reaktive)
             }
         }
     }
 
     sourceSets {
-        named("iosMain") {
+        iosMain {
             dependencies {
                 api(project(":common:database"))
                 api(project(":common:main"))
                 api(project(":common:edit"))
-                api(Deps.ArkIvanov.Decompose.decompose)
-                api(Deps.ArkIvanov.MVIKotlin.mvikotlinMain)
-                api(Deps.ArkIvanov.Essenty.lifecycle)
+                api(libs.arkivanov.decompose)
+                api(libs.arkivanov.mvikotlin.main)
+                api(libs.arkivanov.essenty.lifecycle)
             }
         }
     }

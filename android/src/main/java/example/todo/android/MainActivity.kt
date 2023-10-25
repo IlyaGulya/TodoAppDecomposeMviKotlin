@@ -1,8 +1,8 @@
 package example.todo.android
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.arkivanov.decompose.ComponentContext
@@ -15,7 +15,7 @@ import example.todo.common.root.TodoRoot
 import example.todo.common.root.integration.TodoRootComponent
 import example.todo.common.ui.TodoRootContent
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

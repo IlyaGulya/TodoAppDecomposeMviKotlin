@@ -1,12 +1,17 @@
 plugins {
     id("multiplatform-setup")
     id("android-setup")
-    id("com.squareup.sqldelight")
+    id("app.cash.sqldelight")
 }
 
+android.namespace = "example.todo.common.database"
+
 sqldelight {
-    database("TodoDatabase") {
-        packageName = "example.todo.database"
+    databases {
+        create("TodoDatabase") {
+            packageName = "example.todo.database"
+            generateAsync = true
+        }
     }
 }
 
@@ -14,32 +19,33 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(Deps.Badoo.Reaktive.reaktive)
+                implementation(libs.badoo.reaktive)
+                implementation(libs.badoo.reaktive.coroutines.interop)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(Deps.Squareup.SQLDelight.androidDriver)
-                implementation(Deps.Squareup.SQLDelight.sqliteDriver)
+                implementation(libs.squareup.sqldelight.android.driver)
+                implementation(libs.squareup.sqldelight.sqlite.driver)
             }
         }
 
         desktopMain {
             dependencies {
-                implementation(Deps.Squareup.SQLDelight.sqliteDriver)
+                implementation(libs.squareup.sqldelight.sqlite.driver)
             }
         }
 
         iosMain {
             dependencies {
-                implementation(Deps.Squareup.SQLDelight.nativeDriver)
+                implementation(libs.squareup.sqldelight.native.driver)
             }
         }
 
         jsMain {
             dependencies {
-                implementation(Deps.Squareup.SQLDelight.sqljsDriver)
+                implementation(libs.squareup.sqldelight.webworker.driver)
             }
         }
     }

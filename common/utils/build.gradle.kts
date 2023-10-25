@@ -3,14 +3,16 @@ plugins {
     id("android-setup")
 }
 
+android.namespace = "example.todo.common.list"
+
 kotlin {
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
-                implementation(Deps.ArkIvanov.MVIKotlin.rx)
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
-                implementation(Deps.ArkIvanov.Decompose.decompose)
-                implementation(Deps.Badoo.Reaktive.reaktive)
+                implementation(libs.arkivanov.mvikotlin.rx)
+                implementation(libs.arkivanov.mvikotlin)
+                implementation(libs.arkivanov.decompose)
+                implementation(libs.badoo.reaktive)
             }
         }
     }

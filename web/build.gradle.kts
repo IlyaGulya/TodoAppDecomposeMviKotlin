@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
-
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
@@ -9,6 +7,9 @@ kotlin {
     js(IR) {
         browser {
             useCommonJs()
+//            webpackTask(Action {
+//                this.webpackConfigApplier()
+//            })
             binaries.executable()
         }
     }
@@ -23,20 +24,16 @@ kotlin {
                 implementation(project(":common:root"))
                 implementation(project(":common:main"))
                 implementation(project(":common:edit"))
-                implementation(Deps.ArkIvanov.Decompose.decompose)
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinMain)
-                implementation(npm("copy-webpack-plugin", "9.0.0"))
+                implementation(libs.arkivanov.decompose)
+                implementation(libs.arkivanov.mvikotlin)
+                implementation(libs.arkivanov.mvikotlin.main)
+                implementation(libs.badoo.reaktive)
+                implementation(libs.squareup.sqldelight.webworker.driver)
+                implementation(npm("@cashapp/sqldelight-sqljs-worker", "2.0.0"))
+                implementation(npm("sql.js", "1.8.0"))
+                implementation(npm("copy-webpack-plugin", "11.0.0"))
                 implementation(npm("@material-ui/icons", "4.11.2"))
             }
         }
-    }
-}
-
-// a temporary workaround for a bug in jsRun invocation - see https://youtrack.jetbrains.com/issue/KT-48273
-afterEvaluate {
-    rootProject.extensions.configure<NodeJsRootExtension> {
-        versions.webpackDevServer.version = "4.0.0"
-        versions.webpackCli.version = "4.10.0"
     }
 }

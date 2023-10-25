@@ -4,14 +4,12 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-initDeps(project)
-
 kotlin {
     jvm("desktop")
-    android()
+    androidTarget()
 
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
@@ -19,14 +17,14 @@ kotlin {
             }
         }
 
-        named("androidMain") {
+        val androidMain by getting {
             dependencies {
-                implementation("androidx.appcompat:appcompat:1.3.0")
-                implementation("androidx.core:core-ktx:1.3.1")
+//                implementation("androidx.appcompat:appcompat:1.3.0")
+                implementation(libs.androidx.core.ktx)
             }
         }
 
-        named("desktopMain") {
+        val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.common)
             }

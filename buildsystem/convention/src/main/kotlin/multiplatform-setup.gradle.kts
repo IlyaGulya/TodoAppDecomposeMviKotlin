@@ -3,11 +3,9 @@ plugins {
     id("kotlin-multiplatform")
 }
 
-initDeps(project)
-
 kotlin {
     jvm("desktop")
-    android()
+    androidTarget()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -47,24 +45,24 @@ kotlin {
 
         named("commonTest") {
             dependencies {
-                implementation(Deps.JetBrains.Kotlin.testCommon)
-                implementation(Deps.JetBrains.Kotlin.testAnnotationsCommon)
+                implementation(libs.kotlin.test.common)
+                implementation(libs.kotlin.test.annotations.common)
             }
         }
 
-        named("androidTest") {
+        named("androidUnitTest") {
             dependencies {
-                implementation(Deps.JetBrains.Kotlin.testJunit)
+                implementation(libs.kotlin.test.junit)
             }
         }
         named("desktopTest") {
             dependencies {
-                implementation(Deps.JetBrains.Kotlin.testJunit)
+                implementation(libs.kotlin.test.junit)
             }
         }
         named("jsTest") {
             dependencies {
-                implementation(Deps.JetBrains.Kotlin.testJs)
+                implementation(libs.kotlin.test.js)
             }
         }
     }

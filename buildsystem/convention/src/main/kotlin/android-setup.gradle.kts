@@ -2,14 +2,11 @@ plugins {
     id("com.android.library")
 }
 
-initDeps(project)
-
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23
-        targetSdk = 33
     }
 
     compileOptions {

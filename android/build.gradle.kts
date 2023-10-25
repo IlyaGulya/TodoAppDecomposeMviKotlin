@@ -5,7 +5,8 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
+    namespace = "example.todo.android"
 
     defaultConfig {
         minSdk = 26
@@ -14,13 +15,14 @@ android {
         versionName = "1.0"
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+    packaging {
+        resources {
+            excludes += "META-INF/*"
+        }
     }
 
-    packagingOptions {
-        exclude("META-INF/*")
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
@@ -30,15 +32,11 @@ dependencies {
     implementation(project(":common:root"))
     implementation(project(":common:compose-ui"))
     implementation(compose.material)
-    implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
-    implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinMain)
-    implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinLogging)
-    implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinTimeTravel)
-    implementation(Deps.ArkIvanov.Decompose.decompose)
-    implementation(Deps.ArkIvanov.Decompose.extensionsCompose)
-    implementation(Deps.AndroidX.AppCompat.appCompat)
-    implementation(Deps.AndroidX.Activity.activityCompose)
-
-    // Workaround for https://github.com/JetBrains/compose-jb/issues/2340
-    implementation("androidx.compose.material:material:${Deps.JetpackComposeWorkaround.VERSION}")
+    implementation(libs.arkivanov.mvikotlin)
+    implementation(libs.arkivanov.mvikotlin.main)
+    implementation(libs.arkivanov.mvikotlin.logging)
+    implementation(libs.arkivanov.mvikotlin.timetravel)
+    implementation(libs.arkivanov.decompose)
+    implementation(libs.arkivanov.decompose.extensions.compose)
+    implementation(libs.androidx.activity.compose)
 }

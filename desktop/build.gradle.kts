@@ -11,20 +11,20 @@ kotlin {
     }
 
     sourceSets {
-        named("jvmMain") {
+        val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(project(":common:utils"))
                 implementation(project(":common:database"))
                 implementation(project(":common:root"))
                 implementation(project(":common:compose-ui"))
-                implementation(Deps.JetBrains.Coroutines.swing)
-                implementation(Deps.ArkIvanov.Decompose.decompose)
-                implementation(Deps.ArkIvanov.Decompose.extensionsCompose)
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
-                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinMain)
-                implementation(Deps.Badoo.Reaktive.reaktive)
-                implementation(Deps.Badoo.Reaktive.coroutinesInterop)
+                implementation(libs.coroutines.swing)
+                implementation(libs.arkivanov.decompose)
+                implementation(libs.arkivanov.decompose.extensions.compose)
+                implementation(libs.arkivanov.mvikotlin)
+                implementation(libs.arkivanov.mvikotlin.main)
+                implementation(libs.badoo.reaktive)
+                implementation(libs.badoo.reaktive.coroutines.interop)
             }
         }
     }
