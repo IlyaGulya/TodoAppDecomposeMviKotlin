@@ -12,7 +12,8 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+// Not supported by :web because of nodejs repositories being injected by kotlin-multiplatform plugin
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 
     repositories {
         mavenLocal()

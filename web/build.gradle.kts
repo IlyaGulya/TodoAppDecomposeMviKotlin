@@ -7,9 +7,6 @@ kotlin {
     js(IR) {
         browser {
             useCommonJs()
-//            webpackTask(Action {
-//                this.webpackConfigApplier()
-//            })
             binaries.executable()
         }
     }
