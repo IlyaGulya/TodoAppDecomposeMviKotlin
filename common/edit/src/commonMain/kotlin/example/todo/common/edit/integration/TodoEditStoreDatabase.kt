@@ -5,6 +5,7 @@ import com.badoo.reaktive.maybe.Maybe
 import com.badoo.reaktive.maybe.map
 import example.todo.common.database.TodoItemEntity
 import example.todo.common.database.TodoSharedDatabase
+import example.todo.common.database.unwrap
 import example.todo.common.edit.TodoItem
 import example.todo.common.edit.store.TodoEditStoreProvider.Database
 
@@ -20,7 +21,7 @@ internal class TodoEditStoreDatabase(
     private fun TodoItemEntity.toItem(): TodoItem =
         TodoItem(
             text = text,
-            isDone = isDone
+            isDone = isDone.unwrap()
         )
 
     override fun setText(id: Long, text: String): Completable =

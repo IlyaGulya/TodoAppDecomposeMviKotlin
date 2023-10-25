@@ -15,7 +15,7 @@ internal interface TodoEditStore : Store<Intent, State, Label> {
 
     data class State(
         val text: String = "",
-        val isDone: Boolean = false
+        val isDone: Boolean = false,
     )
 
     sealed class Label {

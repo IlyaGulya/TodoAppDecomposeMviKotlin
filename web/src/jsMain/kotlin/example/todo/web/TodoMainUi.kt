@@ -105,6 +105,7 @@ private fun DOMScope<HTMLUListElement>.Item(
             }
         }
     ) {
+        println("MAIN: ${item.text} isDone: ${item.isDone}")
         MaterialCheckbox(
             checked = item.isDone,
             onCheckedChange = { onDoneChanged(item.id, !item.isDone) },

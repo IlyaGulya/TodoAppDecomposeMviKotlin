@@ -66,7 +66,7 @@ class TestTodoSharedDatabase(
                         id = nextId,
                         orderNum = items.size.toLong(),
                         text = text,
-                        isDone = false
+                        isDone = false.wrap()
                     )
 
                 items + (nextId to item)
@@ -78,7 +78,7 @@ class TestTodoSharedDatabase(
         }
 
         fun setDone(id: Long, isDone: Boolean) {
-            updateItem(id = id) { it.copy(isDone = isDone) }
+            updateItem(id = id) { it.copy(isDone = isDone.wrap()) }
         }
 
         fun delete(id: Long) {

@@ -83,6 +83,7 @@ fun TodoEditUi(component: TodoEdit) {
                 }
             }
         ) {
+            println("EDIT: isDone: ${model.isDone}")
             MaterialCheckbox(
                 checked = model.isDone,
                 onCheckedChange = component::onDoneChanged,

@@ -34,7 +34,13 @@ class DefaultTodoSharedDatabase(driver: Single<SqlDriver>) : TodoSharedDatabase 
 
     private val queries: Single<TodoDatabaseQueries> =
         driver
-            .map { TodoDatabase(it).todoDatabaseQueries }
+            .map {
+                TodoDatabase(
+                    it, TodoItemEntity.Adapter(
+                        isDoneAdapter = WrappedBooleanAdapter()
+                    )
+                ).todoDatabaseQueries
+            }
             .asObservable()
             .replay()
             .autoConnect()
@@ -56,7 +62,7 @@ class DefaultTodoSharedDatabase(driver: Single<SqlDriver>) : TodoSharedDatabase 
         execute { it.setText(id = id, text = text) }
 
     override fun setDone(id: Long, isDone: Boolean): Completable =
-        execute { it.setDone(id = id, isDone = isDone) }
+        execute { it.setDone(id = id, isDone = isDone.wrap()) }
 
     override fun delete(id: Long): Completable =
         execute { it.delete(id = id) }

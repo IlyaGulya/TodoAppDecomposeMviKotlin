@@ -5,6 +5,7 @@ import com.badoo.reaktive.observable.Observable
 import com.badoo.reaktive.observable.mapIterable
 import example.todo.common.database.TodoItemEntity
 import example.todo.common.database.TodoSharedDatabase
+import example.todo.common.database.unwrap
 import example.todo.common.main.TodoItem
 import example.todo.common.main.store.TodoMainStoreProvider
 
@@ -22,7 +23,7 @@ internal class TodoMainStoreDatabase(
             id = id,
             order = orderNum,
             text = text,
-            isDone = isDone
+            isDone = isDone.unwrap()
         )
 
     override fun setDone(id: Long, isDone: Boolean): Completable =
