@@ -1,7 +1,9 @@
 An example of Kotlin Multiplatform todo app with shared Android/Desktop Compose UI and SwiftUI (not Compose) iOS.
 
-Previously it was located in [JetBrains/compose-multiplatform] repository.
+Previously this code was located in [JetBrains/compose-multiplatform] repository.
+
 But it was deleted in [this commit](https://github.com/JetBrains/compose-multiplatform/commit/563575a866c09c283ba9998e3ab44888e8a00779)
+
 I've copied it to a separate repo and maintaining it here now.
 
 This example supports the following targets: 
