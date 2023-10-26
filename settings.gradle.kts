@@ -12,7 +12,7 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-// Not supported by :web because of nodejs repositories being injected by kotlin-multiplatform plugin
+// Not supported by :web because of npm repositories being injected by kotlin-multiplatform plugin
 //    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 
     repositories {
@@ -33,5 +33,6 @@ include(
     ":common:compose-ui",
     ":android",
     ":desktop",
-    ":web"
+    ":web",
+    ":ios-compose-umbrella",
 )

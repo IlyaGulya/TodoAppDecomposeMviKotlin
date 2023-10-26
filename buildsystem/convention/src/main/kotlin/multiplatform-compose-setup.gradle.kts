@@ -1,12 +1,14 @@
 plugins {
     id("com.android.library")
-    id("kotlin-multiplatform")
+    kotlin("multiplatform")
     id("org.jetbrains.compose")
 }
 
 kotlin {
     jvm("desktop")
     androidTarget()
+    ios()
+    iosSimulatorArm64()
 
     sourceSets {
         commonMain {
@@ -19,7 +21,6 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-//                implementation("androidx.appcompat:appcompat:1.3.0")
                 implementation(libs.androidx.core.ktx)
             }
         }
@@ -28,6 +29,14 @@ kotlin {
             dependencies {
                 implementation(compose.desktop.common)
             }
+        }
+
+        val iosMain by getting {
+
+        }
+
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
         }
     }
 

@@ -10,21 +10,24 @@ plugins {
 android.namespace = "example.todo.common.root"
 
 kotlin {
-    ios {
-        binaries {
-            framework {
-                baseName = "Todo"
-                linkerOpts.add("-lsqlite3")
-                export(project(":common:database"))
-                export(project(":common:main"))
-                export(project(":common:edit"))
-                export(libs.arkivanov.mvikotlin)
-                export(libs.arkivanov.mvikotlin.main)
-                export(libs.arkivanov.decompose)
-                export(libs.arkivanov.essenty.lifecycle)
+    targets
+        .filterIsInstance<KotlinNativeTarget>()
+        .filter { it.konanTarget.family == Family.IOS }
+        .forEach { target ->
+            target.binaries {
+                framework {
+                    baseName = "Todo"
+                    linkerOpts.add("-lsqlite3")
+                    export(project(":common:database"))
+                    export(project(":common:main"))
+                    export(project(":common:edit"))
+                    export(libs.arkivanov.mvikotlin)
+                    export(libs.arkivanov.mvikotlin.main)
+                    export(libs.arkivanov.decompose)
+                    export(libs.arkivanov.essenty.lifecycle)
+                }
             }
         }
-    }
 
     sourceSets {
         commonMain {
@@ -43,7 +46,7 @@ kotlin {
     }
 
     sourceSets {
-        iosMain {
+        val iosMain by getting {
             dependencies {
                 api(project(":common:database"))
                 api(project(":common:main"))
