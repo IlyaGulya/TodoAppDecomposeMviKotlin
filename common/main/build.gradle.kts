@@ -22,7 +22,6 @@ kotlin {
             dependencies {
                 implementation(libs.arkivanov.mvikotlin.main)
                 implementation(libs.badoo.reaktive.testing)
-                implementation(libs.badoo.reaktive.utils)
             }
         }
     }

@@ -7,8 +7,6 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
-import com.arkivanov.essenty.parcelable.Parcelable
-import com.arkivanov.essenty.parcelable.Parcelize
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.badoo.reaktive.base.Consumer
 import example.todo.common.database.TodoSharedDatabase
@@ -19,6 +17,7 @@ import example.todo.common.main.integration.TodoMainComponent
 import example.todo.common.root.TodoRoot
 import example.todo.common.root.TodoRoot.Child
 import example.todo.common.utils.Consumer
+import kotlinx.serialization.Serializable
 
 class TodoRootComponent internal constructor(
     componentContext: ComponentContext,
@@ -58,7 +57,8 @@ class TodoRootComponent internal constructor(
             source = navigation,
             initialConfiguration = Configuration.Main,
             handleBackButton = true,
-            childFactory = ::createChild
+            childFactory = ::createChild,
+            serializer = Configuration.serializer()
         )
 
     override val childStack: Value<ChildStack<*, Child>> = stack
@@ -79,11 +79,12 @@ class TodoRootComponent internal constructor(
             is TodoEdit.Output.Finished -> navigation.pop()
         }
 
-    private sealed class Configuration : Parcelable {
-        @Parcelize
-        object Main : Configuration()
+    @Serializable
+    private sealed class Configuration {
+        @Serializable
+        data object Main : Configuration()
 
-        @Parcelize
+        @Serializable
         data class Edit(val itemId: Long) : Configuration()
     }
 }

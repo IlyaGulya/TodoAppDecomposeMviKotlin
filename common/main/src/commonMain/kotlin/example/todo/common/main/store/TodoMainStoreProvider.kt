@@ -36,7 +36,7 @@ internal class TodoMainStoreProvider(
     }
 
     private inner class ExecutorImpl : ReaktiveExecutor<Intent, Unit, State, Msg, Nothing>() {
-        override fun executeAction(action: Unit, getState: () -> State) {
+        override fun executeAction(action: Unit) {
             database
                 .updates
                 .observeOn(mainScheduler)
@@ -44,12 +44,12 @@ internal class TodoMainStoreProvider(
                 .subscribeScoped(onNext = ::dispatch)
         }
 
-        override fun executeIntent(intent: Intent, getState: () -> State): Unit =
+        override fun executeIntent(intent: Intent): Unit =
             when (intent) {
                 is Intent.SetItemDone -> setItemDone(id = intent.id, isDone = intent.isDone)
                 is Intent.DeleteItem -> deleteItem(id = intent.id)
                 is Intent.SetText -> dispatch(Msg.TextChanged(text = intent.text))
-                is Intent.AddItem -> addItem(state = getState())
+                is Intent.AddItem -> addItem()
             }
 
         private fun setItemDone(id: Long, isDone: Boolean) {
@@ -62,7 +62,8 @@ internal class TodoMainStoreProvider(
             database.delete(id = id).subscribeScoped()
         }
 
-        private fun addItem(state: State) {
+        private fun addItem() {
+            val state = state()
             if (state.text.isNotEmpty()) {
                 dispatch(Msg.TextChanged(text = ""))
                 database.add(text = state.text).subscribeScoped()

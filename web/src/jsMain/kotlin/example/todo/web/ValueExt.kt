@@ -17,7 +17,7 @@ fun <T : Any> Value<T>.subscribeAsState(): State<T> {
         subscribe(observer)
 
         onDispose {
-            unsubscribe(observer)
+
         }
     }
 
