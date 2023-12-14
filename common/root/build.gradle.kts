@@ -5,6 +5,7 @@ plugins {
     id("multiplatform-setup")
     id("android-setup")
     id("kotlin-parcelize")
+    kotlin("plugin.serialization")
 }
 
 android.namespace = "example.todo.common.root"

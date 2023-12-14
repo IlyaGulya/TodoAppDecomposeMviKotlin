@@ -37,7 +37,7 @@ internal class TodoEditStoreProvider(
     }
 
     private inner class ExecutorImpl : ReaktiveExecutor<Intent, Unit, State, Msg, Label>() {
-        override fun executeAction(action: Unit, getState: () -> State) {
+        override fun executeAction(action: Unit) {
             database
                 .load(id = id)
                 .map(Msg::Loaded)
@@ -45,21 +45,21 @@ internal class TodoEditStoreProvider(
                 .subscribeScoped(onSuccess = ::dispatch)
         }
 
-        override fun executeIntent(intent: Intent, getState: () -> State) =
+        override fun executeIntent(intent: Intent) =
             when (intent) {
-                is Intent.SetText -> setText(text = intent.text, state = getState())
-                is Intent.SetDone -> setDone(isDone = intent.isDone, state = getState())
+                is Intent.SetText -> setText(text = intent.text)
+                is Intent.SetDone -> setDone(isDone = intent.isDone)
             }
 
-        private fun setText(text: String, state: State) {
+        private fun setText(text: String) {
             dispatch(Msg.TextChanged(text = text))
-            publish(Label.Changed(TodoItem(text = text, isDone = state.isDone)))
+            publish(Label.Changed(TodoItem(text = text, isDone = state().isDone)))
             database.setText(id = id, text = text).subscribeScoped()
         }
 
-        private fun setDone(isDone: Boolean, state: State) {
+        private fun setDone(isDone: Boolean) {
             dispatch(Msg.DoneChanged(isDone = isDone))
-            publish(Label.Changed(TodoItem(text = state.text, isDone = isDone)))
+            publish(Label.Changed(TodoItem(text = state().text, isDone = isDone)))
             database.setDone(id = id, isDone = isDone).subscribeScoped()
         }
     }

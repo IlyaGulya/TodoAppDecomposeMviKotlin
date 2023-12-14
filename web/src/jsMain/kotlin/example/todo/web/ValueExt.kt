@@ -14,10 +14,10 @@ fun <T : Any> Value<T>.subscribeAsState(): State<T> {
     DisposableEffect(this) {
         val observer: (T) -> Unit = { state.value = it }
 
-        subscribe(observer)
+        val cancellation = subscribe(observer)
 
         onDispose {
-            unsubscribe(observer)
+            cancellation.cancel()
         }
     }
 

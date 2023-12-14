@@ -1,14 +1,15 @@
 [versions]
-kotlin = "1.9.10"
+kotlin = "1.9.21"
 coroutines = "1.7.3"
-compose = "1.5.3"
-android-tools-build-gradle = "8.1.2"
-androidx-activity-compose = "1.8.0"
-arkivanov-mvikotlin = "3.2.1"
-arkivanov-decompose = "2.1.3-compose-experimental"
-arkivanov-essenty = "1.2.0"
-badoo-reaktive = "1.3.0"
-sqldelight = "2.0.0"
+compose = "1.5.11"
+android-tools-build-gradle = "8.2.0"
+androidx-activity-compose = "1.8.1"
+arkivanov-mvikotlin = "4.0.0-alpha01"
+arkivanov-decompose = "3.0.0-alpha02"
+arkivanov-essenty = "2.0.0-alpha02"
+badoo-reaktive = "2.0.1"
+sqldelight = "2.0.1"
+kotlin-serialization = "1.6.2"
 
 [libraries]
 # JetBrains libraries
@@ -16,6 +17,7 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 kotlin-test-js = { module = "org.jetbrains.kotlin:kotlin-test-js", version.ref = "kotlin" }
+kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
 coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
 compose-gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
@@ -26,20 +28,18 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-core-ktx = "androidx.core:core-ktx:1.12.0"
 
 # ArkIvanov libraries
-arkivanov-mvikotlin-rx = { module = "com.arkivanov.mvikotlin:rx", version.ref = "arkivanov-mvikotlin" }
 arkivanov-mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "arkivanov-mvikotlin" }
 arkivanov-mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "arkivanov-mvikotlin" }
 arkivanov-mvikotlin-logging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", version.ref = "arkivanov-mvikotlin" }
 arkivanov-mvikotlin-timetravel = { module = "com.arkivanov.mvikotlin:mvikotlin-timetravel", version.ref = "arkivanov-mvikotlin" }
 arkivanov-mvikotlin-extensions-reaktive = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive", version.ref = "arkivanov-mvikotlin" }
 arkivanov-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "arkivanov-decompose" }
-arkivanov-decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "arkivanov-decompose" }
+arkivanov-decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "arkivanov-decompose" }
 arkivanov-essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "arkivanov-essenty" }
 
 # Badoo libraries
 badoo-reaktive = { module = "com.badoo.reaktive:reaktive", version.ref = "badoo-reaktive" }
 badoo-reaktive-coroutines-interop = { module = "com.badoo.reaktive:coroutines-interop", version.ref = "badoo-reaktive" }
-badoo-reaktive-utils = { module = "com.badoo.reaktive:utils", version.ref = "badoo-reaktive" }
 badoo-reaktive-testing = { module = "com.badoo.reaktive:reaktive-testing", version.ref = "badoo-reaktive" }
 
 # Squareup libraries
@@ -53,6 +53,7 @@ squareup-sqldelight-webworker-driver = { module = "app.cash.sqldelight:web-worke
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 android-application = { id = "com.android.application", version.ref = "android-tools-build-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-tools-build-gradle" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }

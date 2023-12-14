@@ -3,11 +3,11 @@
 package example.todo.common.ui
 
 import androidx.compose.runtime.Composable
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.arkivanov.decompose.extensions.compose.stack.Children
+import com.arkivanov.decompose.extensions.compose.stack.animation.fade
+import com.arkivanov.decompose.extensions.compose.stack.animation.plus
+import com.arkivanov.decompose.extensions.compose.stack.animation.scale
+import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import example.todo.common.root.TodoRoot
 import example.todo.common.root.TodoRoot.Child
 

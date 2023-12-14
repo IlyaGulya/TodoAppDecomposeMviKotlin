@@ -10,6 +10,7 @@ import com.badoo.reaktive.test.observable.test
 import com.badoo.reaktive.test.scheduler.TestScheduler
 import example.todo.common.database.TestTodoSharedDatabase
 import example.todo.common.database.TodoItemEntity
+import example.todo.common.database.unwrap
 import example.todo.common.main.TodoItem
 import example.todo.common.main.TodoMain.Model
 import example.todo.common.main.TodoMain.Output
@@ -85,7 +86,7 @@ class TodoMainTest {
 
         impl.onItemDoneChanged(id = id, isDone = true)
 
-        assertTrue(databaseTesting.selectRequired(id = id).isDone)
+        assertTrue(databaseTesting.selectRequired(id = id).isDone.unwrap())
     }
 
     @Test
@@ -96,7 +97,7 @@ class TodoMainTest {
 
         impl.onItemDoneChanged(id = id, isDone = false)
 
-        assertFalse(databaseTesting.selectRequired(id = id).isDone)
+        assertFalse(databaseTesting.selectRequired(id = id).isDone.unwrap())
     }
 
     @Test
