@@ -34,7 +34,7 @@ class DefaultTodoSharedDatabase(driver: Single<SqlDriver>) : TodoSharedDatabase 
 
     private val queries: Single<TodoDatabaseQueries> =
         driver
-            .map {
+            .map { it ->
                 TodoDatabase(
                     it, TodoItemEntity.Adapter(
                         isDoneAdapter = WrappedBooleanAdapter()
