@@ -1,15 +1,9 @@
 plugins {
-    id("com.android.library")
-    kotlin("multiplatform")
+    id("multiplatform-setup")
     id("org.jetbrains.compose")
 }
 
 kotlin {
-    jvm("desktop")
-    androidTarget()
-    ios()
-    iosSimulatorArm64()
-
     sourceSets {
         commonMain {
             dependencies {
@@ -30,17 +24,9 @@ kotlin {
                 implementation(compose.desktop.common)
             }
         }
-
-        val iosMain by getting {
-
-        }
-
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
-        }
     }
+}
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
-    }
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = "11"
 }

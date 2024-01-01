@@ -143,6 +143,7 @@ private fun TodoInput(
             value = text,
             modifier = Modifier.weight(weight = 1F).onKeyEvent(onKeyUp(Key.Enter, onAddClicked)),
             onValueChange = onTextChanged,
+            maxLines = 1,
             label = { Text(text = "Add a todo") }
         )
 

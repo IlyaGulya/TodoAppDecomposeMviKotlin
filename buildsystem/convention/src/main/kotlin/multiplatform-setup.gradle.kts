@@ -1,69 +1,37 @@
 plugins {
     id("com.android.library")
-    id("kotlin-multiplatform")
+    kotlin("multiplatform")
 }
 
 kotlin {
     jvm("desktop")
     androidTarget()
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
-
-    js(IR) {
+    js {
         browser()
     }
 
     sourceSets {
-        create("iosMain") {
-            dependsOn(getByName("commonMain"))
-        }
-        create("iosTest") {
-            dependsOn(getByName("commonTest"))
+        commonTest.dependencies {
+            implementation(libs.kotlin.test.common)
+            implementation(libs.kotlin.test.annotations.common)
         }
 
-        getByName("iosX64Main") {
-            dependsOn(getByName("iosMain"))
-        }
-        getByName("iosX64Test") {
-            dependsOn(getByName("iosTest"))
-        }
-
-        getByName("iosArm64Main") {
-            dependsOn(getByName("iosMain"))
-        }
-        getByName("iosArm64Test") {
-            dependsOn(getByName("iosTest"))
-        }
-
-        getByName("iosSimulatorArm64Main") {
-            dependsOn(getByName("iosMain"))
-        }
-        getByName("iosSimulatorArm64Test") {
-            dependsOn(getByName("iosTest"))
-        }
-
-        named("commonTest") {
-            dependencies {
-                implementation(libs.kotlin.test.common)
-                implementation(libs.kotlin.test.annotations.common)
-            }
-        }
-
-        named("androidUnitTest") {
+        val androidUnitTest by getting {
             dependencies {
                 implementation(libs.kotlin.test.junit)
             }
         }
-        named("desktopTest") {
+
+        val desktopTest by getting {
             dependencies {
                 implementation(libs.kotlin.test.junit)
             }
         }
-        named("jsTest") {
-            dependencies {
-                implementation(libs.kotlin.test.js)
-            }
+
+        jsTest.dependencies {
+            implementation(libs.kotlin.test.js)
         }
     }
 

@@ -1,27 +1,33 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.konan.target.Family
+
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
 }
 
 kotlin {
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "Todo"
-            isStatic = true
-            linkerOpts.add("-lsqlite3")
-            export(project(":common:database"))
-            export(project(":common:root"))
-            export(libs.arkivanov.mvikotlin)
-            export(libs.arkivanov.mvikotlin.main)
-            export(libs.arkivanov.decompose)
-            export(libs.arkivanov.essenty.lifecycle)
+    applyDefaultHierarchyTemplate()
+    iosArm64()
+    iosSimulatorArm64()
 
+    targets
+        .filterIsInstance<KotlinNativeTarget>()
+        .filter { it.konanTarget.family == Family.IOS }
+        .forEach { iosTarget ->
+            iosTarget.binaries.framework {
+                baseName = "Todo"
+                isStatic = true
+                linkerOpts.add("-lsqlite3")
+                export(project(":common:database"))
+                export(project(":common:root"))
+                export(libs.arkivanov.mvikotlin)
+                export(libs.arkivanov.mvikotlin.main)
+                export(libs.arkivanov.decompose)
+                export(libs.arkivanov.essenty.lifecycle)
+
+            }
         }
-    }
 
     sourceSets {
         val commonMain by getting {
@@ -33,19 +39,6 @@ kotlin {
                 api(project(":common:database"))
                 implementation(project(":common:compose-ui"))
             }
-        }
-
-        val iosMain by creating {
-            dependsOn(commonMain)
-        }
-        val iosX64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosArm64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
         }
     }
 

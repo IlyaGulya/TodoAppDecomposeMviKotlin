@@ -44,10 +44,8 @@ kotlin {
                 implementation(libs.badoo.reaktive)
             }
         }
-    }
 
-    sourceSets {
-        val iosMain by getting {
+        iosMain {
             dependencies {
                 api(project(":common:database"))
                 api(project(":common:main"))
