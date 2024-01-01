@@ -4,6 +4,7 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(17)
     jvm("desktop")
     androidTarget()
     iosArm64()
@@ -33,9 +34,5 @@ kotlin {
         jsTest.dependencies {
             implementation(libs.kotlin.test.js)
         }
-    }
-
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
     }
 }
