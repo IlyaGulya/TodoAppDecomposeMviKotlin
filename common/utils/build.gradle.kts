@@ -1,7 +1,8 @@
 plugins {
-    id("multiplatform-setup")
-    id("android-setup")
+    id("build-tools")
 }
+
+configureMultiplatform()
 
 android.namespace = "example.todo.common.list"
 

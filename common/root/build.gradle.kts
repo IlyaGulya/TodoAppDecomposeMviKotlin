@@ -2,11 +2,12 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
-    id("multiplatform-setup")
-    id("android-setup")
+    id("build-tools")
     id("kotlin-parcelize")
     kotlin("plugin.serialization")
 }
+
+configureMultiplatform()
 
 android.namespace = "example.todo.common.root"
 

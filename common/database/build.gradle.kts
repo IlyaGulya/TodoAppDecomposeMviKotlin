@@ -1,10 +1,12 @@
 plugins {
-    id("multiplatform-setup")
-    id("android-setup")
+    id("build-tools")
     id("app.cash.sqldelight")
 }
 
-android.namespace = "example.todo.common.database"
+configureAndroid {
+    namespace = "example.todo.common.database"
+}
+configureMultiplatform()
 
 sqldelight {
     databases {

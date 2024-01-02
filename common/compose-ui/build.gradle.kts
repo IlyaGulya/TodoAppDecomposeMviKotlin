@@ -1,7 +1,10 @@
 plugins {
     id("multiplatform-compose-setup")
-    id("android-setup")
+    id("build-tools")
 }
+
+configureAndroid()
+
 
 android.namespace = "example.todo.common.ui"
 kotlin {
