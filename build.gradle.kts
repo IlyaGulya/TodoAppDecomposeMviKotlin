@@ -8,13 +8,3 @@ plugins {
     alias(libs.plugins.compose) apply false
     alias(libs.plugins.squareup.sqldelight) apply false
 }
-
-//allprojects {
-//    afterEvaluate {
-//        // Workaround for https://youtrack.jetbrains.com/issue/KT-52776
-//        rootProject.extensions.findByType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>()
-//            ?.apply {
-//                versions.webpackCli.version = "4.10.0"
-//            }
-//    }
-//}

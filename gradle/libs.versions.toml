@@ -1,14 +1,14 @@
 [versions]
 kotlin = "1.9.21"
 coroutines = "1.7.3"
-compose = "1.5.11"
-android-tools-build-gradle = "8.2.0"
-androidx-activity-compose = "1.8.1"
-arkivanov-mvikotlin = "4.0.0-alpha01"
-arkivanov-decompose = "3.0.0-alpha02"
+compose = "1.6.0-alpha01"
+android-tools-build-gradle = "8.2.1"
+androidx-activity-compose = "1.8.2"
+arkivanov-mvikotlin = "4.0.0-alpha02"
+arkivanov-decompose = "3.0.0-alpha04"
 arkivanov-essenty = "2.0.0-alpha02"
-badoo-reaktive = "2.0.1"
-sqldelight = "2.0.1"
+badoo-reaktive = "2.1.0-beta01"
+sqldelight = "2.1.0-SNAPSHOT"
 kotlin-serialization = "1.6.2"
 
 [libraries]
@@ -36,6 +36,7 @@ arkivanov-mvikotlin-extensions-reaktive = { module = "com.arkivanov.mvikotlin:mv
 arkivanov-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "arkivanov-decompose" }
 arkivanov-decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "arkivanov-decompose" }
 arkivanov-essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "arkivanov-essenty" }
+arkivanov-essenty-backhandler = { module = "com.arkivanov.essenty:back-handler", version.ref = "arkivanov-essenty" }
 
 # Badoo libraries
 badoo-reaktive = { module = "com.badoo.reaktive:reaktive", version.ref = "badoo-reaktive" }
