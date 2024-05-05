@@ -3,6 +3,7 @@ package example.todo.desktop
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
@@ -25,9 +26,9 @@ fun main() {
     overrideSchedulers(main = Dispatchers.Main::asScheduler)
 
     val lifecycle = LifecycleRegistry()
-    val root = todoRoot(DefaultComponentContext(lifecycle = lifecycle))
-
     application {
+        val root = remember { todoRoot(DefaultComponentContext(lifecycle = lifecycle)) }
+
         val windowState = rememberWindowState()
         LifecycleController(lifecycle, windowState)
 

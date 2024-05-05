@@ -1,14 +1,14 @@
 [versions]
 kotlin = "1.9.23"
 coroutines = "1.8.0"
-compose = "1.6.1"
-android-tools-build-gradle = "8.3.1"
+compose = "1.6.2"
+android-tools-build-gradle = "8.3.2"
 androidx-activity-compose = "1.8.2"
-arkivanov-mvikotlin = "4.0.0-beta01"
-arkivanov-decompose = "3.0.0-beta01"
-arkivanov-essenty = "2.0.0-beta01"
+arkivanov-mvikotlin = "4.0.0"
+arkivanov-decompose = "3.0.0"
+arkivanov-essenty = "2.0.0"
 badoo-reaktive = "2.1.0"
-sqldelight = "2.0.1"
+sqldelight = "2.0.2"
 kotlin-serialization = "1.6.3"
 
 [libraries]
