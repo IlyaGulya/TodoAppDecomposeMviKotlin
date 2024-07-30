@@ -1,19 +1,20 @@
 [versions]
-kotlin = "1.9.23"
-coroutines = "1.8.0"
-compose = "1.6.2"
-android-tools-build-gradle = "8.3.2"
-androidx-activity-compose = "1.8.2"
+kotlin = "2.0.0"
+coroutines = "1.8.1"
+compose = "1.6.11"
+android-tools-build-gradle = "8.5.1"
+androidx-activity-compose = "1.9.1"
 arkivanov-mvikotlin = "4.0.0"
-arkivanov-decompose = "3.0.0"
-arkivanov-essenty = "2.0.0"
-badoo-reaktive = "2.1.0"
+arkivanov-decompose = "3.1.0"
+arkivanov-essenty = "2.1.0"
+badoo-reaktive = "2.2.0"
 sqldelight = "2.0.2"
-kotlin-serialization = "1.6.3"
+kotlin-serialization = "1.7.1"
 
 [libraries]
 # JetBrains libraries
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-compose-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 kotlin-test-js = { module = "org.jetbrains.kotlin:kotlin-test-js", version.ref = "kotlin" }
@@ -25,7 +26,7 @@ compose-gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin"
 # Android libraries
 android-tools-build-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-tools-build-gradle" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
-androidx-core-ktx = "androidx.core:core-ktx:1.12.0"
+androidx-core-ktx = "androidx.core:core-ktx:1.13.1"
 
 # ArkIvanov libraries
 arkivanov-mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "arkivanov-mvikotlin" }
@@ -54,6 +55,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-application = { id = "com.android.application", version.ref = "android-tools-build-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-tools-build-gradle" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
