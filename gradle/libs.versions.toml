@@ -8,7 +8,7 @@ arkivanov-mvikotlin = "4.0.0"
 arkivanov-decompose = "3.1.0"
 arkivanov-essenty = "2.1.0"
 badoo-reaktive = "2.2.0"
-sqldelight = "2.0.2"
+sqldelight = "2.1.0-local"
 kotlin-serialization = "1.7.1"
 
 [libraries]
