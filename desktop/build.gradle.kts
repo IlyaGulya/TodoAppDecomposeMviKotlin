@@ -1,17 +1,13 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    // kotlin("jvm") doesn't work well in IDEA/AndroidStudio (https://github.com/JetBrains/compose-jb/issues/22)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.compose)
 }
 
 kotlin {
-    jvm {
-        withJava()
-    }
-
+    jvm()
     sourceSets {
         val jvmMain by getting {
             dependencies {

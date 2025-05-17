@@ -13,6 +13,9 @@ kotlin {
                 implementation(project(":common:root"))
                 implementation(libs.arkivanov.decompose)
                 implementation(libs.arkivanov.decompose.extensions.compose)
+                implementation(libs.coroutines.core)
+
+                implementation(compose.materialIconsExtended)
             }
         }
     }

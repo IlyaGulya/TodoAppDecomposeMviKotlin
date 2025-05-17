@@ -13,6 +13,10 @@ kotlin {
         browser()
     }
 
+    compilerOptions {
+
+    }
+
     sourceSets {
         commonTest.dependencies {
             implementation(libs.kotlin.test.common)
