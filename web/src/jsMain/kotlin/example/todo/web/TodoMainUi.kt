@@ -168,6 +168,7 @@ private fun TodoInput(
             label = "Add todo",
             text = text,
             onTextChanged = onTextChanged,
+            onSubmit = onAddClicked,
             attrs = {
                 style {
                     property("flex", "1 1 auto")

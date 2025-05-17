@@ -70,6 +70,7 @@ fun MaterialTextArea(
     label: String,
     text: String,
     onTextChanged: (String) -> Unit,
+    onSubmit: () -> Unit = {},
     attrs: AttrBuilderContext<*> = {}
 ) {
     Div(
@@ -84,6 +85,11 @@ fun MaterialTextArea(
                 id("text_area_add_todo")
                 classes("materialize-textarea")
                 onInput { onTextChanged(it.value) }
+                onKeyUp { event ->
+                    if (event.key == "Enter") {
+                        onSubmit()
+                    }
+                }
                 style {
                     width(100.percent)
                     height(100.percent)
